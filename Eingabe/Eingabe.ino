@@ -1,33 +1,18 @@
+//Eingabe vink Pototyp
 
-/* Analog Read to LED
- * ------------------ 
- *
- * turns on and off a light emitting diode(LED) connected to digital  
- * pin 13. The amount of time the LED will be on and off depends on
- * the value obtained by analogRead(). In the easiest case we connect
- * a potentiometer to analog pin 2.
- *
- * Created 1 December 2005
- * copyleft 2005 DojoDave <http://www.0j0.org>
- * http://arduino.berlios.de
- *
- */
-
-int potPin = 2;    // select the input pin for the potentiometer
-int ledPin = 13;   // select the pin for the LED
-int eingabewert = 0;       // variable to store the value coming from the sensor
-int r = 0;
-int g = 0;
-int b = 0;
-String farbe = "keine";
+int potPin = 2;            //Potentiometer an Pin A2
+int eingabewert = 0;       // Variable für den durch das Potentiometer eingegebenen Wert
+int r = 0;                 // Variable für Rot-Wert der zu errechnenden Farbe
+int g = 0;                 // Variable für Grün-Wert der zu errechnenden Farbe
+int b = 0;                 // Variable für Blau-Wert der zu errechnenden Farbe
+String farbe = "keine";    // Variable für die Bennenung der errechneten Farbe
 
 void setup() {
-  pinMode(ledPin, OUTPUT);  // declare the ledPin as an OUTPUT
   Serial.begin(9600); // Starte Serialmonitor
 }
 
 void loop() {
-  eingabewert = analogRead(potPin)/ 4;    // read the value from the sensor
+  eingabewert = analogRead(potPin)/ 4;    // Eingabewert vm Potentiometer erfassen und diesen durch folgende Bedingungen in einen Farbwert umwandeln
   if(eingabewert == 0){
    r = 0;
    g = 0;
@@ -65,7 +50,7 @@ void loop() {
    farbe = "rot";
   }
 
- 
+ // Ausgabe des Eingabewertes des Potentiometers, der Farbbezeichnung und errechneten Farbwerts (rgb) im Serialmonitor
   Serial.print("Eingabewert: ");
   Serial.println(eingabewert);
   Serial.print("Farbe: ");
