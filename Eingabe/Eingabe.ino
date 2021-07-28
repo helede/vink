@@ -6,6 +6,7 @@ int r = 0;                 // Variable für Rot-Wert der zu errechnenden Farbe
 int g = 0;                 // Variable für Grün-Wert der zu errechnenden Farbe
 int b = 0;                 // Variable für Blau-Wert der zu errechnenden Farbe
 String farbe = "keine";    // Variable für die Bennenung der errechneten Farbe
+int multi = 0;             // Variable zur Multipilizierung der Farbschritte
 
 void setup() {
   Serial.begin(9600); // Starte Serialmonitor
@@ -26,9 +27,10 @@ void loop() {
    farbe = "gruen";
   }
   if(eingabewert > 1 && eingabewert < 128){
-   r = 151;
-   g = 201;
-   b = 124;
+   multi = eingabewert - 1;                  // Die Variable multi wird benutzt, um die Anzahl der Annäherungsschritte an die nächste Farbe zu bestimmen
+   r = 151 + (multi * 0.832);                  // Die Faktoren, die mit multi multipliziert werden wurden errechnet: Farbwertabstand = (Farbwert der nächsten Farbe - Farbe der vorangegangenen Farbe); Faktor = (Farbwertabstand / 125)
+   g = 201 + (multi * 0.088);
+   b = 124 + (multi * 0.6);
    farbe = "zwischen gruen und gelb";
   }
   if(eingabewert == 128){
@@ -38,9 +40,9 @@ void loop() {
    farbe = "gelb";
   }
    if(eingabewert > 128 && eingabewert < 255){
-   r = 151;
-   g = 201;
-   b = 124;
+   r = 255;
+   g = 212 - (multi * 0.552);
+   b = 199 - (multi * 0.704);
    farbe = "zwischen gelb und rot";
   }
   if(eingabewert == 255){
