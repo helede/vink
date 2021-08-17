@@ -65,9 +65,9 @@ void setup() {
   strip1.begin();
   strip2.begin();
   strip3.begin();
-  strip1.show(); // Initialize all pixels to 'off'
-  strip2.show();
-  strip3.show();
+//  strip1.show(); // Initialize all pixels to 'off'
+//  strip2.show();
+//  strip3.show();
 }
 
 
