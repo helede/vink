@@ -9,8 +9,8 @@
 #define PIN2        6       // Eingabe2
 #define PIN3        7       // Ausgabe 
 
-int potPin1 = 1;            //Potentiometer an Pin A1
-int potPin2 = 2;            //Potentiometer2 an Pin A2
+int potPin1 = 2;            //Potentiometer an Pin A1
+int potPin2 = 3;            //Potentiometer2 an Pin A2
 int eingabewert1 = 0;       // Variable für den durch das Potentiometer1 eingegebenen Wert
 int eingabewert2 = 0;       // Variable für den durch das Potentiometer2 eingegebenen Wert
 int eingabewertd = 0;
