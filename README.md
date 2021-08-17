@@ -3,7 +3,7 @@ von Helene Antonia Lehmann und Isabel Mahnken
 
 Sommersemester 2021, Interactive Media Design, Mediencampus Dieburg der Hochschule Darmstadt
 
-## Prototypumsetzung
+## Umgesetzte Funktionen
 In der Umsetzungsphase des Projektes vink hat sich das Team
 vorgenommen, das konzipierte Produkt (nähere Informationen sind [hier](https://imd.mediencampus.h-da.de/projekt/vink/) zu finden) teilweise und ansatzweise
 in Form eines Prototyps umzusetzen. Ein Prototyp ist hierbei eine
@@ -19,5 +19,62 @@ Potentiometer (Vertical RK09K113 von Alps
 Alpine) als Sensor mit einem Arduino Uno
 folgendermaßen verbunden.
 
-![Eingabe](/images/logo.png)
-Format: ![Steckplatine Eingabefunktion](url)
+
+![Steckplatine Eingabe](media/Eingabe_Steck.png)
+
+Über die Arduino-IDE wurde ein
+Programm (s. Kapitel Programmierung der
+Komponenten: Anhänger, S. 63) nach der
+im vorangegangenen Kapitel aufgezeigten
+Logik geschrieben, das dem über das
+Potentiometer eingestellten Wert einem
+Farbwert aus dem Farbspektrum zuordnet
+und die Ergebnisse auf dem Serial-Monitor
+wie folgt anzeigt:
+
+
+```Eingabewert: 0
+Farbe: keine
+Farbwert: rgb(0,0,0)
+-------------
+Eingabewert: 95
+Farbe: zwischen gruen und gelb
+Farbwert: rgb(229,209,180)
+-------------
+Eingabewert: 255
+Farbe: rot
+Farbwert: rgb(255,143,111)>`
+```
+
+### Umsetzung der Ausgabe am Eingabeelement
+Die umgesetzte Eingabe sollte ebenfalls visualisiert werden. Dazu wurde
+zusätzlich eine RGB-LED (WS2812B – RGB-LED) an den Arduino wie
+abgebildet angeschlossen. Diese leuchtet in dem errechneten Farbwert der
+getätigten Eingabe.
+
+
+![Steckplatine Eingabe](media/Ausgabe1_Steck.png)
+
+### Umsetzung der gesamten Ausgabe
+Mit der Ausgabe des „Wertedurchschnitts“ soll die ambiente Raumlampe
+im Klassenzimmer und deren Funktionen nachgeahmt werden. Damit ein
+Durchschnitt aus mehreren Eingaben errechnet werden kann, müssen
+mindestens zwei Eingabemöglichkeiten existieren. Aus diesem Grund
+wurde die umgesetzte Eingabe um eine RGB-LED (WS2812B – RGB-
+LED) und ein Potentiometer (ähnl. Vertical RK09K113 von Alps Alpine)
+ergänzt. Dazu wurde noch ein  LED-Stripe (WS2812B – RGB-LED) mit ca. 70 LEDs hinzugefügt. Dazu wurde ein
+Programm geschrieben, das den „Wertedurchschnitt“ errechnet und anzeigt. Diese Anzeige wurde zudem animiert, sodass die Wellenbewegung des Lichtspiels annähernd nachgeahmt werden kann.
+
+![Steckplatine Eingabe](media/EinundAusgabe_Steck.png)
+
+## Umgesetzter Prototyp
+Die einzeln umgesetzten Funktionen wurden schließlich mithilfe
+verschiedener Materialien zu einem Gesamtbild zusammengefügt. Darunter
+zählten eine transparente Kunststoffröhre, Holz und Pergamentpapier. Das Ergebnis kann auf
+folgendem Video, das über [hier](https://vimeo.com/588472651) zu erreichen ist,
+nachvollzogen werden.
+
+
+
+
+
