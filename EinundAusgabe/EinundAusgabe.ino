@@ -4,6 +4,9 @@
 #ifdef __AVR__
  #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
+#include <Servo.h> //Die Servobibliothek wird aufgerufen. Sie wird benötigt, damit die Ansteuerung des Servos vereinfacht wird.
+Servo servo; 
+
 
 // Which pin on the Arduino is connected to the NeoPixels?
 #define PIN1        5       // Eingabe1
@@ -30,11 +33,13 @@ String farbed = "keine";    // Variable für die Bennenung der errechneten Farbe
 uint32_t farbwert1;    
 uint32_t farbwert2;    
 uint32_t farbwertd;    
+uint32_t farbwertl;  
+uint32_t wertservo;  
 int multi1 = 0;             // Variable zur Multipilizierung der Farbschritte
 int multi2 = 0;             // Variable zur Multipilizierung der Farbschritte
 int multid = 0;             // Variable zur Multipilizierung der Farbschritte
-
-#define NUMPIXELS 50 
+int servopos = 0;
+#define NUMPIXELS 100 
 
 // When setting up the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals. Note that for older NeoPixel
@@ -60,6 +65,7 @@ void setup() {
   strip1.show(); // Initialize all pixels to 'off'
   strip2.show();
   strip3.show();
+  servo.attach(8); 
 }
 
 void loop() {
@@ -74,52 +80,52 @@ void loop() {
   multi2 = eingabewert2 - 1;
   multid = eingabewertd - 1;
 
-  if(eingabewert1 == 0){
+  if(eingabewert1 <5){
    r1 = 0;
    g1 = 0;
    b1 = 0;
   }
-  if(eingabewert2 == 0){
+  if(eingabewert2 <5){
    r2 = 0;
    g2 = 0;
    b2 = 0;
   }
-  if(eingabewertd == 0){
+  if(eingabewertd <5){
    rd = 0;
    gd = 0;
    bd = 0;
   }
-  if(eingabewert1 == 1){
+  if(eingabewert1 == 5){
    r1 = 100;
    g1 = 155;
    b1 = 0;
    farbe1 = "gruen";
   }
-  if(eingabewert2 == 1){
+  if(eingabewert2 == 5){
    r2 = 100;
    g2 = 155;
    b2 = 0;
    farbe2 = "gruen";
   }
-  if(eingabewertd == 1){
+  if(eingabewertd == 5){
    rd = 100;
    gd = 155;
    bd = 0;
    farbed = "gruen";
   }
-  if(eingabewert1 > 1 && eingabewert1 < 255){
+  if(eingabewert1 > 5 && eingabewert1 < 255){
    r1 = 100 + (multi1 * 0.57312253);                  
    g1 = 155 - (multi1 * 0.57312253);
    b1 = 0;
    farbe1 = "irgendetwas zwischen gruen und rot";
   }
-  if(eingabewert2 > 1 && eingabewert2 < 255){
+  if(eingabewert2 > 5 && eingabewert2 < 255){
    r2 = 100 + (multi2 * 0.57312253);                  
    g2 = 155 - (multi2 * 0.57312253);
    b2 = 0;
    farbe2 = "irgendetwas zwischen gruen und rot";
   }
-  if(eingabewertd > 1 && eingabewertd < 255){
+  if(eingabewertd > 5 && eingabewertd < 255){
    rd = 100 + (multid * 0.57312253);                  
    gd = 155 - (multid * 0.57312253);
    bd = 0;
@@ -148,14 +154,17 @@ void loop() {
   farbwert2 = strip2.Color(r2, g2, b2);
   farbwertd = strip3.Color(rd, gd, bd);
   
- 
-  
 strip1.fill(farbwert1);
 strip2.fill(farbwert2);
 strip3.fill(farbwertd);
 strip1.show();
 strip2.show();
 strip3.show();
+
+if(farbwertd != farbwertl){
+  wertservo = farbwertl - farbwertd;
+  servo.write(wertservo);
+}
 
  // Ausgabe des Eingabewertes des Potentiometers, der Farbbezeichnung und errechneten Farbwerts (rgb) im Serialmonitor
   Serial.print("Eingabewert1: ");
@@ -194,7 +203,9 @@ strip3.show();
   Serial.print(bd);
   Serial.println(")");
   Serial.println("-------------");
-  
+
+    
+  farbwertl = farbwertd;
  
 //  
 //  Serial.println("Eingabewert: "+ eingabewert);
