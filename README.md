@@ -20,7 +20,7 @@ Alpine) als Sensor mit einem Arduino Uno
 folgendermaßen verbunden.
 
 
-![Steckplatine Eingabe](media/Eingabe_Steck.png)
+![Steckplatine Eingabe](develop/Eingabe/Eingabe_Steck.png)
 
 Über die Arduino-IDE wurde ein
 Programm (s. Kapitel Programmierung der
@@ -53,7 +53,7 @@ abgebildet angeschlossen. Diese leuchtet in dem errechneten Farbwert der
 getätigten Eingabe.
 
 
-![Steckplatine Eingabe](media/Ausgabe1_Steck.png)
+![Steckplatine Eingabe](develop/Ausgabe/Ausgabe1_Steck.png)
 
 ### Umsetzung der gesamten Ausgabe
 Mit der Ausgabe des „Wertedurchschnitts“ soll die ambiente Raumlampe
@@ -65,7 +65,7 @@ LED) und ein Potentiometer (ähnl. Vertical RK09K113 von Alps Alpine)
 ergänzt. Dazu wurde noch ein  LED-Stripe (WS2812B – RGB-LED) mit ca. 70 LEDs hinzugefügt. Dazu wurde ein
 Programm geschrieben, das den „Wertedurchschnitt“ errechnet und anzeigt. Diese Anzeige wurde zudem animiert, sodass die Wellenbewegung des Lichtspiels annähernd nachgeahmt werden kann.
 
-![Steckplatine Eingabe](media/EinundAusgabe_Steck.png)
+![Steckplatine Eingabe](develop/EinundAusgabe/EinundAusgabe_Steck.png)
 
 ## Umgesetzter Prototyp
 Die einzeln umgesetzten Funktionen wurden schließlich mithilfe

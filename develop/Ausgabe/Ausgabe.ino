@@ -1,13 +1,11 @@
-//Ausgabe vink Pototyp
+//Ausgabe vink Prototyp
 
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
- #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
-// Which pin on the Arduino is connected to the NeoPixels?
-#define PIN1        5 // On Trinket or Gemma, suggest changing this to 1
-#define PIN2        6 // On Trinket or Gemma, suggest changing this to 1
+#define PIN1        5 
+#define PIN2        6 
 
 int potPin1 = 1;            //Potentiometer an Pin A1
 int potPin2 = 2;            //Potentiometer2 an Pin A2
@@ -27,35 +25,28 @@ int multi1 = 0;             // Variable zur Multipilizierung der Farbschritte
 int multi2 = 0;             // Variable zur Multipilizierung der Farbschritte
 
 
-// How many NeoPixels are attached to the Arduino?
-#define NUMPIXELS 6 // Popular NeoPixel ring size
+#define NUMPIXELS 6 
 
-// When setting up the NeoPixel library, we tell it how many pixels,
-// and which pin to use to send signals. Note that for older NeoPixel
-// strips you might need to change the third parameter -- see the
-// strandtest example for more information on possible values.
 Adafruit_NeoPixel strip1(NUMPIXELS, PIN1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip2(NUMPIXELS, PIN2, NEO_GRB + NEO_KHZ800);
 
 void setup() {
-  // These lines are specifically to support the Adafruit Trinket 5V 16 MHz.
-  // Any other board, you can remove this part (but no harm leaving it):
+ 
 #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
   clock_prescale_set(clock_div_1);
 #endif
-  // END of Trinket-specific code.
 
 
   Serial.begin(9600); // Starte Serialmonitor
   strip1.begin();
   strip2.begin();
-  strip1.show(); // Initialize all pixels to 'off'
+  strip1.show(); 
   strip2.show();
 }
 
 void loop() {
-  strip1.clear(); // Set all pixel colors to 'off'
-  strip2.clear(); // Set all pixel colors to 'off'
+  strip1.clear(); 
+  strip2.clear(); 
 
 
   eingabewert1 = analogRead(potPin1)/ 4;    // Eingabewert vm Potentiometer erfassen und diesen durch folgende Bedingungen in einen Farbwert umwandeln
@@ -144,18 +135,6 @@ strip2.show();
   Serial.println(")");
   Serial.println("-------------");
   
- 
-//  
-//  Serial.println("Eingabewert: "+ eingabewert);
-//  Serial.println("Farbe: " + farbe);
-//  Serial.print("Farbwert: rgb(" + r);
-//  Serial.print(g);
-//  Serial.print(b +")");
 
-
-//  digitalWrite(ledPin, HIGH);  // turn the ledPin on
-//  delay(val);                  // stop the program for some time
-//  digitalWrite(ledPin, LOW);   // turn the ledPin off
-//  delay(val);                  // stop the program for some time
 }
  
