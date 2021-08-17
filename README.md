@@ -62,7 +62,7 @@ mindestens zwei Eingabemöglichkeiten existieren. Aus diesem Grund
 wurde die umgesetzte Eingabe um eine RGB-LED (WS2812B – RGB-
 LED) und ein Potentiometer (ähnl. Vertical RK09K113 von Alps Alpine)
 ergänzt. Dazu wurde noch ein  LED-Stripe (WS2812B – RGB-LED) mit ca. 70 LEDs hinzugefügt. Dazu wurde ein
-Programm geschrieben, das den „Wertedurchschnitt“ errechnet und anzeigt. Diese Anzeige wurde zudem animiert, sodass die Wellenbewegung des Lichtspiels annähernd nachgeahmt werden kann ([siehe hier](https://github.com/helede/vink/blob/main/vink/vink.ino).
+Programm geschrieben, das den „Wertedurchschnitt“ errechnet und anzeigt. Diese Anzeige wurde zudem animiert, sodass die Wellenbewegung des Lichtspiels annähernd nachgeahmt werden kann ([siehe hier](https://github.com/helede/vink/blob/main/vink/vink.ino)).
 
 ![Steckplatine Eingabe](develop/EinundAusgabe/EinundAusgabe_Steck.png)
 
