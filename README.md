@@ -1,2 +1,0 @@
-# vink
-repository vink prototype 

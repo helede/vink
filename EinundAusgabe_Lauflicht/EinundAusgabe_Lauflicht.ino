@@ -1,12 +1,10 @@
-//Ausgabe vink Pototyp
+//Ein- und Ausgabe mit Lauflicht (vorläufig -- ruckelt leider) vink Pototyp
 
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
- #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
+ #include <avr/power.h>
 #endif
 
-
-// Which pin on the Arduino is connected to the NeoPixels?
 #define PIN1        5       // Eingabe1
 #define PIN2        6       // Eingabe2
 #define PIN3        7       // Ausgabe 
@@ -31,8 +29,6 @@ String farbed = "keine";    // Variable für die Bennenung der errechneten Farbe
 uint32_t farbwert1;    
 uint32_t farbwert2;    
 uint32_t farbwertd;    
-uint32_t farbwertl;  
-uint32_t wertservo;  
 int multi1 = 0;             // Variable zur Multipilizierung der Farbschritte
 int multi2 = 0;             // Variable zur Multipilizierung der Farbschritte
 int multid = 0;             // Variable zur Multipilizierung der Farbschritte
@@ -42,10 +38,7 @@ int l = 0;
 
 #define NUMPIXELS 100 
 
-// When setting up the NeoPixel library, we tell it how many pixels,
-// and which pin to use to send signals. Note that for older NeoPixel
-// strips you might need to change the third parameter -- see the
-// strandtest example for more information on possible values.
+
 Adafruit_NeoPixel strip1(6, PIN1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip2(6, PIN2, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip3(NUMPIXELS, PIN3, NEO_GRB + NEO_KHZ800);
@@ -53,19 +46,16 @@ Adafruit_NeoPixel farblos(20, PIN3, NEO_GRB + NEO_KHZ800);
 
 
 void setup() {
-  // These lines are specifically to support the Adafruit Trinket 5V 16 MHz.
-  // Any other board, you can remove this part (but no harm leaving it):
 #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
   clock_prescale_set(clock_div_1);
 #endif
-  // END of Trinket-specific code.
 
 
   Serial.begin(9600); // Starte Serialmonitor
   strip1.begin();
   strip2.begin();
   strip3.begin();
-//  strip1.show(); // Initialize all pixels to 'off'
+//  strip1.show(); 
 //  strip2.show();
 //  strip3.show();
 }
@@ -147,20 +137,6 @@ void loop() {
   Serial.println("-------------");
 
     
-  farbwertl = farbwertd;
- 
-//  
-//  Serial.println("Eingabewert: "+ eingabewert);
-//  Serial.println("Farbe: " + farbe);
-//  Serial.print("Farbwert: rgb(" + r);
-//  Serial.print(g);
-//  Serial.print(b +")");
-
-
-//  digitalWrite(ledPin, HIGH);  // turn the ledPin on
-//  delay(val);                  // stop the program for some time
-//  digitalWrite(ledPin, LOW);   // turn the ledPin off
-//  delay(val);                  // stop the program for some time
 }
 
  void EingabeAuslesen(){

@@ -125,17 +125,5 @@ if(eingabewert1 == 0){
   Serial.println("-------------");
   delay(1000);
  
-//  
-//  Serial.println("Eingabewert: "+ eingabewert);
-//  Serial.println("Farbe: " + farbe);
-//  Serial.print("Farbwert: rgb(" + r);
-//  Serial.print(g);
-//  Serial.print(b +")");
-
-
-//  digitalWrite(ledPin, HIGH);  // turn the ledPin on
-//  delay(val);                  // stop the program for some time
-//  digitalWrite(ledPin, LOW);   // turn the ledPin off
-//  delay(val);                  // stop the program for some time
 }
  
